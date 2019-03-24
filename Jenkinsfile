@@ -21,7 +21,7 @@ node {
         sh "docker push ${imageName}"
 
     stage "Deploy"
-        ssh vagrant@192.168.33.20
+        ssh 192.168.33.20 -l vagrant
     
             kubernetesDeploy configs: "applications/${appName}/k8s/*.yaml", kubeconfigId: 'kenzan_kubeconfig'
 
